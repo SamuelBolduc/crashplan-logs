@@ -23,7 +23,7 @@ Standard options:
 
 ```
 
-By default, the script looks in the default CrashPlan logs locations.
+By default, the script looks in the [default CrashPlan logs locations](https://support.code42.com/CrashPlan/4/Troubleshooting/Read_Code42_app_log_files#Log_file_locations). You can manually specify the log file by providing as the last argument to the command.
 
 ## Pre-requisites
 This was coded with Node.js. It's not the most widely used scripting language, but that's what I'm the most comfortable with. Therefore, you will need Node.js version 4.9 or more to run this program. Head over to the [official Node.js downloads section](https://nodejs.org/en/download/) to install it if you don't already have it.
@@ -34,4 +34,8 @@ My logs were produced by the Code42 6.7 application, but I don't think it differ
 
 ## Motivation
 
-With the forced migration of CrashPlan Home users to CrashPlan for Small Business, many people were pretty disappointed with the UI of the new client compared to what they were used for. There were many issues, but what I hated the most personnally was the removal of any relevant info about the upload progress. In CrashPlan Home it was possible to see the upload speed and the current uploaded file,. which gave a pretty good idea of what was happening. Now all we have is an overall percentage of completion as well as the "done" and "remaining" totals (rounded to the nearest unit, which in the case of terabytes is pretty vague).
+With the forced migration of CrashPlan Home users to CrashPlan for Small Business, many people were pretty disappointed with the UI of the new client compared to what they were used to. There were many issues, but what I disliked the most personnally was the removal of any relevant info about the upload progress.
+
+In CrashPlan Home it was possible to see the upload speed and the file currently uploading, which gave a pretty good idea of what was happening. Now all we have is an overall percentage of completion as well as the "done" and "remaining" totals (rounded to the nearest unit, which in the case of terabytes is pretty vague).
+
+This little package aims to provide some details that the standard interface does not.
