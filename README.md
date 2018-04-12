@@ -23,7 +23,7 @@ Standard options:
 
 ```
 
-By default, the script looks in the [default CrashPlan logs locations](https://support.code42.com/CrashPlan/4/Troubleshooting/Read_Code42_app_log_files#Log_file_locations). You can manually specify the log file by providing as the last argument to the command.
+By default, the script looks in the [default CrashPlan log locations](https://support.code42.com/CrashPlan/4/Troubleshooting/Read_Code42_app_log_files#Log_file_locations). You can manually specify the log file by providing as the last argument to the command.
 
 ## Pre-requisites
 This was coded with Node.js. It's not the most widely used scripting language, but that's what I'm the most comfortable with. Therefore, you will need Node.js version 4.9 or more to run this program. Head over to the [official Node.js downloads section](https://nodejs.org/en/download/) to install it if you don't already have it.
@@ -39,3 +39,9 @@ With the forced migration of CrashPlan Home users to CrashPlan for Small Busines
 In CrashPlan Home it was possible to see the upload speed and the file currently uploading, which gave a pretty good idea of what was happening. Now all we have is an overall percentage of completion as well as the "done" and "remaining" totals (rounded to the nearest unit, which in the case of terabytes is pretty vague).
 
 This little package aims to provide some details that the standard interface does not.
+
+## Limitations
+
+One limitation is that the CrashPlan backup entries do not specify the seconds in their timestamp - they round (?) to the minute. So For files uploading in less than 5 - 10 minutes, the speed might not be very accurate.
+
+Also, other things that uploaded files are logged in this file. I try to ignore them, but it might happen that unexpected lines appear in the output. Don't worry, it's normal, I just didn't have the time (and knowledge) to cover all possible cases.
