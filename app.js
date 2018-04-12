@@ -11,7 +11,7 @@ const bitrate = require('bitrate');
 const Tail = require('tail').Tail;
 require('colors');
 
-let N = 150;
+let N = 10;
 let FOLLOW = false;
 let LOG_FILE = null;
 
@@ -21,12 +21,14 @@ if(args.length) {
   for(let i = 0; i < args.length; i++) {
     const param = args[i];
     switch(param) {
-      case '-n': {
+      case '-n':
+      case '--lines': {
         N = parseInt(args[i + 1]);
         i++;
         break;
       }
-      case '-f': {
+      case '-f':
+      case '--follow': {
         FOLLOW = true;
         break;
       }
