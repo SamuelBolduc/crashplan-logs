@@ -12,8 +12,8 @@ const Tail = require('tail').Tail;
 require('colors');
 
 let N = 150;
-let LOG_FILE = null;
 let FOLLOW = false;
+let LOG_FILE = null;
 
 // Parse arguments
 const args = process.argv.slice(2);
@@ -39,8 +39,18 @@ if(args.length) {
 
 if(!LOG_FILE) {
   LOG_FILE = detectLogFileLocation();
+} else {
+  try {
+    if(fs.statSync(LOG_FILE).isFile()) {
+      console.log(`Logfile found at ${LOG_FILE}.`.green);
+    }
+  } catch(e) {
+    console.error(`${'ERROR:'.red} Cannot find logfile at ${LOG_FILE}...`);
+    process.exit(1);
+  }
 }
 
+console.log(`Reading and parsing logfile...`.cyan);
 const file = fs.readFileSync(LOG_FILE, 'utf8');
 
 const lines = file.split('\n');
@@ -118,7 +128,7 @@ function processLine(line) {
     if(lastIndex === i - 1) {
       duration = moment.duration(parsedDate.diff(lastDate)).asMinutes();
       speed = bitrate(uploadedBytes, duration * 60, 'mbps');
-      transferStats = `⬆ ${prettyBytes(parseInt(fileSize))} in ${duration} mins`;
+      transferStats = `⬆ ${prettyBytes(parseInt(uploadedBytes))} in ${duration} mins`;
       if(duration) transferStats += ` (approx. ${speed.toFixed(1)}mbps)`;
     }
 
@@ -187,7 +197,7 @@ function checkLocation(location) {
     try {
       if(fs.statSync(normalizedPath).isFile()) {
         result = normalizedPath;
-        console.log(`Logfile found!`);
+        console.log(`Logfile found at ${normalizedPath}.`.green);
       }
     } catch(e) { /* File doesnt exist */ }
   }

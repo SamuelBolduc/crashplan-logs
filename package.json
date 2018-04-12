@@ -1,9 +1,13 @@
 {
   "name": "crashplan-logs",
   "version": "1.0.0",
-  "description": "Script to parse and watch CrashPlan backup logs in real time.",
+  "description": "Script to parse and watch CrashPlan PRO backup logs in real time.",
   "main": "app.js",
-  "author": "Samuel Bolduc <sam@samuelbolduc.info> (http://samuelbolduc.info)",
+  "bin": {
+    "crashplan-logs": "app.js"
+  },
+  "preferGlobal": true,
+  "author": "Samuel Bolduc <sam@sambolduc.com> (https://sambolduc.com)",
   "license": "MIT",
   "dependencies": {
     "bitrate": "^1.0.4",
