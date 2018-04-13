@@ -44,4 +44,4 @@ This little package aims to provide some details that the standard interface doe
 
 One limitation is that the CrashPlan backup entries do not specify the seconds in their timestamp, only the minute. So for files uploading in less than 5 minutes, the speed might not be super accurate.
 
-Also, other things that uploaded files are logged in this file. I try to ignore them, but it might happen that unexpected lines appear in the output. Don't worry, it's normal, I just didn't have the time (and knowledge) to cover all possible cases.
+Also, CrashPlan logs other stuff not directly related to uploaded items in that log file. I try to ignore those lines, but it might happen that unexpected lines appear in the output. Don't worry, it's normal, I just didn't have the time (and knowledge) to cover all possible cases.
