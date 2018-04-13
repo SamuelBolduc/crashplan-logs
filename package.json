@@ -1,6 +1,6 @@
 {
   "name": "crashplan-logs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Script to parse and watch CrashPlan PRO backup logs in real time.",
   "engines" : {
     "node" : ">=4.9"
